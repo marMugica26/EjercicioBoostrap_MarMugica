@@ -9,7 +9,6 @@
         rel="stylesheet"
         />
         <link rel="icon" type="image/png" href="images/favicon.png" />
-    
         <style>
             .app {
                 min-height: 100vh;
@@ -36,11 +35,21 @@
                 background: rgba(255, 255, 255, 0.12);
                 border-radius: 10px;
             }
+            .brand-dot {
+                width: 44px;
+                height: 44px;
+                border-radius: 14px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                background: rgba(255, 255, 255, 0.14);
+            }
         </style>
     </head>
     <body class="bg-light">
         <div class="app">
-        <!-- Columna izquierda con logo y menú vertical -->
+            <!-- Columna izquierda con logo y menú vertical -->
             <aside class="sidebar p-3 p-lg-4">
                 <div class="d-flex align-items-center gap-2 mb-4">
                     <img
@@ -55,12 +64,11 @@
                         <div class="small text-white-50">Panel</div>
                     </div>
                 </div>
-
                 <nav class="nav flex-column gap-1">
                     <a class="nav-link active px-3 py-2" href="#">Dashboard</a>
-                    <a class="nav-link px-3 py-2" href="#">Reservas</a>
-                    <a class="nav-link px-3 py-2" href="#">Acciones</a>
-                    <a class="nav-link px-3 py-2" href="#">Operativa</a>
+                    <a class="nav-link px-3 py-2" href="#tabla">Reservas</a>
+                    <a class="nav-link px-3 py-2" href="#acciones">Acciones</a>
+                    <a class="nav-link px-3 py-2" href="#progreso">Operativa</a>
 
                     <hr class="border-secondary my-3" />
 
@@ -68,7 +76,6 @@
                     <a class="nav-link px-3 py-2" href="#">Salir</a>
                 </nav>
             </aside>
-
             <main class="p-3 p-lg-4">
                 <!-- (b) Breadcrumb -->
                 <nav aria-label="breadcrumb" class="mb-3">
@@ -78,41 +85,98 @@
                     <li class="breadcrumb-item active" aria-current="page">Panel</li>
                     </ol>
                 </nav>
-
                 <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-4">
                     <div>
                     <h1 class="h3 mb-1">Panel de reservas</h1>
                     <p class="text-muted mb-0">Gestiona clientes, pagos y estado de viajes.</p>
                     </div>
                 </div>
-
                 <!-- (d) Botones de acción -->
-                <div class="d-flex gap-2 mb-3" id="acciones">
+                <div class="d-flex justify-content-end gap-2 mb-3" id="acciones">
                     <button
                         type="button"
                         class="btn btn-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#crearModal"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="Crear una nueva reserva"
                     >
                         + Nueva reserva
                     </button>
-
-                    <button type="button" class="btn btn-outline-secondary">
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        data-bs-toggle="popover"
+                        data-bs-title="Tip"
+                        data-bs-content="Usa 'Filtrar' para ver solo las reservas de hoy o las pendientes de pago."
+                    >
+                        Ayuda rápida
+                    </button>
+                    <button 
+                        type="button" 
+                        class="btn btn-outline-secondary"
+                        data-bs-toggle="tooltip"
+                        data-bs-title="Exporta un listado para contabilidad">
                         Exportar
                     </button>
                 </div>
 
+                <!-- Cards rápidas -->
+                <div class="row g-3 mb-4">
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <div class="text-muted small">Reservas del mes</div>
+                                        <div class="h4 mb-0">128</div>
+                                    </div>
+                                    <span class="badge text-bg-primary align-self-start">+8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <div class="text-muted small">Pagos pendientes</div>
+                                        <div class="h4 mb-0">14</div>
+                                    </div>
+                                    <span class="badge text-bg-warning align-self-start">Revisar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <div class="text-muted small">Incidencias</div>
+                                        <div class="h4 mb-0">2</div>
+                                    </div>
+                                    <span class="badge text-bg-success align-self-start">Control</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
                 <!-- (c) Tabla de reservas -->
                 <section id="tabla" class="mb-4">
                     <div class="card shadow-sm">
                         <div class="card-header bg-white d-flex align-items-center justify-content-between">
                             <span class="fw-semibold">Reservas recientes</span>
                             <div class="d-flex gap-2">
-                                <button class="btn btn-sm btn-outline-secondary">Exportar</button>
-                                <button class="btn btn-sm btn-outline-secondary">Filtrar</button>
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" data-bs-title="Descargar CSV">
+                                    Exportar CSV
+                                </button>
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" data-bs-title="Filtrar por estado/destino">
+                                    Filtrar
+                                </button>
                             </div>
                         </div>
-
                         <div class="table-responsive">
                             <table class="table table-striped table-hover mb-0 align-middle">
                                 <thead class="table-light">
@@ -133,11 +197,17 @@
                                         <td>12/04/2026</td>
                                         <td><span class="badge text-bg-success">Confirmada</span></td>
                                         <td class="text-end">
-                                            <button class="btn btn-sm btn-outline-primary">Editar</button>
-                                            <button class="btn btn-sm btn-outline-danger">Cancelar</button>
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-title="Editar reserva">
+                                                Editar
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger"
+                                                data-bs-toggle="popover"
+                                                data-bs-title="Cancelar reserva"
+                                                data-bs-content="Esta acción marcaría la reserva como cancelada (demo).">
+                                            Cancelar
+                                            </button>
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td>CV-1051</td>
                                         <td>Lucas Pérez</td>
@@ -145,8 +215,30 @@
                                         <td>20/04/2026</td>
                                         <td><span class="badge text-bg-warning">Pendiente pago</span></td>
                                         <td class="text-end">
-                                        <button class="btn btn-sm btn-outline-primary">Editar</button>
-                                        <button class="btn btn-sm btn-outline-success">Cobrar</button>
+                                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-title="Editar reserva">Editar</button>
+                                        <button class="btn btn-sm btn-outline-success" data-bs-toggle="popover"
+                                                data-bs-title="Cobro"
+                                                data-bs-content="Registrar pago y enviar confirmación al cliente (demo).">Cobrar</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CV-1056</td>
+                                        <td>Marta Ruiz</td>
+                                        <td>Tenerife relax</td>
+                                        <td>05/05/2026</td>
+                                        <td><span class="badge text-bg-secondary">En revisión</span></td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-title="Editar reserva">
+                                                Editar
+                                            </button>
+                                            <button
+                                                class="btn btn-sm btn-outline-secondary"
+                                                data-bs-toggle="popover"
+                                                data-bs-title="Notas internas"
+                                                data-bs-content="Añadir notas sobre hotel, vuelos o peticiones del cliente (demo)."
+                                            >
+                                                Notas
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -170,20 +262,16 @@
                         </div>
                     </div>
                 </section>
-
-
                 <!-- (e) Barra de progreso -->
                 <section id="progreso" class="mb-4">
                     <div class="card shadow-sm">
                         <div class="card-header bg-white fw-semibold">
                             Operativa del día
                         </div>
-
                         <div class="card-body">
                             <p class="text-muted mb-2">
                                 Estado de la operativa interna (demo).
                             </p>
-
                             <div
                                 class="progress mb-3"
                                 role="progressbar"
@@ -196,7 +284,6 @@
                                     65%
                                 </div>
                             </div>
-
                             <div class="d-flex flex-wrap gap-2">
                                 <span class="badge text-bg-light text-dark">Confirmaciones</span>
                                 <span class="badge text-bg-light text-dark">Emisión billetes</span>
@@ -206,12 +293,9 @@
                         </div>
                     </div>
                 </section>
-
             </main>
         </div>
-
-
-    <!-- (d) Modal nueva reserva -->
+        <!-- (d) Modal nueva reserva -->
         <div
             class="modal fade"
             id="crearModal"
@@ -232,7 +316,6 @@
                             aria-label="Cerrar"
                         ></button>
                     </div>
-
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
@@ -244,23 +327,21 @@
                                     placeholder="Ej: Ana López"
                                 />
                             </div>
-
                             <div class="mb-3">
                                 <label for="destino" class="form-label">Destino</label>
                                 <select class="form-select" id="destino">
                                     <option>Roma express</option>
                                     <option>Lisboa a pie</option>
                                     <option>Tenerife relax</option>
+                                    <option>Aventura en Dolomitas</option>
                                 </select>
                             </div>
-
                             <div class="mb-3">
                                 <label for="fecha" class="form-label">Fecha de salida</label>
                                 <input type="date" class="form-control" id="fecha" />
                             </div>
                         </form>
                     </div>
-
                     <div class="modal-footer">
                         <button
                             type="button"
@@ -279,6 +360,12 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+        <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            [...tooltipTriggerList].forEach((el) => new bootstrap.Tooltip(el));
 
+            const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+            [...popoverTriggerList].forEach((el) => new bootstrap.Popover(el));
+        </script>
     </body>
 </html>
