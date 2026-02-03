@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CostaViva Travel</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <style>
+    .brand-dot {
+      color: #0d6efd;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    }
+    .destino-img {
+      object-fit: cover;
+      height: 100%;
+    }
+    .map-placeholder {
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+    <header class="border-bottom sticky-top bg-white">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                    <img src="images/favicon.png" alt="Logo" width="28" height="28" class="me-2">
+                    CostaViva<span class="brand-dot">.</span>Travel
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Inicio</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#bloques-50">Destinos</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#cards-4">Paquetes</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                Más
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#tabs-accordion">FAQ</a></li>
+                                <li><a class="dropdown-item" href="#login-mapa">Acceso</a></li>
+                                <li><a class="dropdown-item" href="#footer">Contacto</a></li>
+                                </ul>
+                            </li>
+                    </ul>
+
+                    <form class="d-flex me-lg-3 my-2 my-lg-0">
+                        <input class="form-control me-2" type="search" placeholder="Buscar destino (Roma, Bali, Tenerife)">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </form>
+
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                            ES
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">ES</a></li>
+                            <li><a class="dropdown-item" href="#">EN</a></li>
+                            <li><a class="dropdown-item" href="#">FR</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+ 
+        <section class="hero-bg py-5 border-bottom">
+        <div class="container py-3">
+            <div class="row align-items-center g-4">
+            <div class="col-12 col-lg-7">
+                <h1 class="display-5 fw-bold mb-3 animate__animated animate__fadeInDown">
+                Escapadas que se sienten como vacaciones largas.
+                </h1>
+                <p class="lead text-muted mb-4 animate__animated animate__fadeInUp">
+                Packs con vuelos + hotel + experiencias. Tú eliges el destino, nosotros lo cuadramos.
+                </p>
+                <div class="d-flex gap-2">
+                <a class="btn btn-dark" href="#cards-4">Ver paquetes</a>
+                <a class="btn btn-outline-dark" href="#login-mapa">Acceder</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-5">
+                <div class="p-4 bg-white rounded-4 border shadow-sm">
+                <h2 class="h5 mb-2">Oferta de la semana</h2>
+                <p class="text-muted mb-0">
+                    “Roma express” 3 noches + tour gastronómico. Plazas limitadas.
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+
+        </header>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
